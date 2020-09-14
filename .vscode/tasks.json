@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: gcc build active file",
+			"command": "/usr/bin/gcc",
+			"args": [
+				"-g",//编译命令
+                "${file}",
+				"-o",//输出文件命令
+				"${workspaceFolder}/${fileBasenameNoExtension}.o"//生成的可执行文件的路径及名称
+				],
+			
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}
