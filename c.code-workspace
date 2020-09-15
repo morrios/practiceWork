@@ -5,5 +5,13 @@
 		}
 	],
 	"settings": {
+		"files.associations": {
+			"__bit_reference": "c",
+			"algorithm": "c",
+			"bitset": "c",
+			"chrono": "c",
+			"unordered_map": "c",
+			"__locale": "c"
+		}
 	}
 }
