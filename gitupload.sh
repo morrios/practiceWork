@@ -1,0 +1,16 @@
+#!/bin/bash
+function git.branch {
+  br=`git branch | grep "*"`
+  echo ${br/* /}
+}
+branch=$(git.branch)
+echo "当前分支： $branch "
+git add .
+if [[ $# > 0 ]]
+then
+git commit -m $1
+else
+git commit -m "save"
+fi
+git push origin $(git.branch)
+
