@@ -3,6 +3,10 @@ function git.branch {
   br=`git branch | grep "*"`
   echo ${br/* /}
 }
+
+find . -type f -name '*.o' | xargs rm
+find . -type f -name '*.dSYM' | xargs rm
+
 branch=$(git.branch)
 echo "当前分支： $branch "
 git add .
