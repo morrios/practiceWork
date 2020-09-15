@@ -5,7 +5,7 @@ function git.branch {
 }
 
 find . -type f -name '*.o' | xargs rm
-find . -type f -name '*.dSYM' | xargs rm
+find . -type f -name '*.o.dSYM' | xargs rm
 
 branch=$(git.branch)
 echo "当前分支： $branch "
