@@ -1,5 +1,13 @@
+//
+//  main.c
+//  118. 杨辉三角
+//
+//  Created by 杜林伟 on 2020/9/17.
+//  Copyright © 2020 杜林伟. All rights reserved.
+//
+
 #include<stdio.h>
- int** generate(int numRows, int* returnSize){
+int** generate(int numRows, int* returnSize){
     
     *returnSize = numRows;
     

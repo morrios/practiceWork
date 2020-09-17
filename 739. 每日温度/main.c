@@ -1,3 +1,11 @@
+//
+//  main.c
+//  739. 每日温度
+//
+//  Created by 杜林伟 on 2020/9/17.
+//  Copyright © 2020 杜林伟. All rights reserved.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 int *dailyTemperatures_1(int *T, int TSize, int *returnSize)
