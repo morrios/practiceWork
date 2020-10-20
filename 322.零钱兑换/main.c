@@ -5,13 +5,39 @@
 //  Created by 杜林伟 on 2020/10/20.
 //  Copyright © 2020 杜林伟. All rights reserved.
 //
+/*
+ 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
 
+ 你可以认为每种硬币的数量是无限的。
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/coin-change
+ */
 #include <stdio.h>
 int min(int x, int y) {
     return x < y ? x : y;
 }
 
+int coinChange3(int* coins, int coinsSize, int amount){
+    if (amount == 0) {
+        return 0;;
+    }
+    int dp[amount + 1];
+    dp[0] = 0;
+    for (int i = 1; i < amount + 1; i ++) {
+        dp[i] = amount + 1;
+        for (int j = 0; j < coinsSize; j++) {
+            int coin = coins[j];
+            if (i - coin < 0) {
+                continue;
+            }
+            printf("dp[%d] = %d\n", i, dp[i]);
 
+            dp[i] = min(dp[i], dp[i - coin] + 1);
+        }
+    }
+    return dp[amount] == amount + 1 ? -1 : dp[amount];
+}
 
 
 
@@ -67,7 +93,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
     int conins[3] = {1,2,5};
-    int res = coinChange2(conins, 3, 100);
+    int res = coinChange3(conins, 3, 100);
     printf("res = %d \n", res);
     return 0;
 }
