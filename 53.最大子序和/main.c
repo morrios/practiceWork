@@ -28,15 +28,26 @@ int min(int x, int y) {
 int getMax(int x, int y) {
     return x > y ? x : y;
 }
+/*
+ 第一个子组合是以第一个数字结尾的连续序列，也就是 [-2]，最大值-2
+
+ 第二个子组合是以第二个数字结尾的连续序列，也就是 [-2,1], [1]，最大值1
+
+ 第三个子组合是以第三个数字结尾的连续序列，也就是 [-2,1,3], [1,3], [3]，最大值4
+
+ 以此类推。。。
+ */
+//F(n) = MAX(F(n-1) + ai, ai);
+
+
 int maxSubArray1(int* nums, int numsSize){
     if (numsSize == 0) {
         return 0;
     }
-    int pre = 0;
     int max = nums[0];
-    for (int i = 0; i < numsSize; i++) {//-2,3,2,-1,2
-        pre = getMax(pre + nums[i], nums[i]);
-        max = getMax(max, pre);
+    for (int i = 1; i < numsSize; i++) {
+        nums[i] = getMax(nums[i-1]+nums[i], nums[i]);
+        max = getMax(max, nums[i]);
     }
     return max;
 }
@@ -67,7 +78,7 @@ int main(int argc, const char * argv[]) {
     printf("Hello, World!\n");
 //    int nums[9] = {-2,1,-3,4,-1,2,1,-5,4};
 //    int res = maxSubArray1(nums, 9);
-    int nums[5] = {-2,3,2,-1,2};
+    int nums[5] = {-2,3,2,-1,-2};
     int res = maxSubArray1(nums, 5);
 //    int N = 9;
 //    int nums[9] = {-2,1,-3,4,-1,2,1,-5,4};
