@@ -3,8 +3,8 @@ function git.branch {
   br=`git branch | grep "*"`
   echo ${br/* /}
 }
-
-find . -type f -name '*.o' | xargs rm
+#删除 vscode 下的 C 的.0包
+#find . -type f -name '*.o' | xargs rm
 
 branch=$(git.branch)
 echo "当前分支： $branch "
